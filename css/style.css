@@ -1,0 +1,686 @@
+/* =========================
+   Fred AI Homepage V4.1
+   Apple Minimal Style
+========================= */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+
+body{
+
+    background:#ffffff;
+
+    color:#111;
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Helvetica Neue",
+    Arial,
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+
+    line-height:1.7;
+
+}
+
+
+
+/* =========================
+ Header
+========================= */
+
+
+.header{
+
+    height:90px;
+
+    padding:0 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    letter-spacing:-1px;
+
+}
+
+
+
+nav{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+
+nav a{
+
+    text-decoration:none;
+
+    color:#444;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+
+nav a:hover{
+
+    color:#000;
+
+}
+
+
+
+
+
+
+/* =========================
+ Hero
+========================= */
+
+
+.hero{
+
+    min-height:90vh;
+
+    padding:0 8%;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+
+
+.hero-content{
+
+    width:50%;
+
+    z-index:2;
+
+}
+
+
+
+.tag{
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+    color:#888;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:120px;
+
+    line-height:1;
+
+    letter-spacing:-8px;
+
+    font-weight:700;
+
+}
+
+
+
+.hero h2{
+
+    font-size:42px;
+
+    font-weight:500;
+
+    letter-spacing:-1px;
+
+    margin:40px 0;
+
+}
+
+
+
+.english{
+
+    color:#777;
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+button{
+
+    background:#111;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 38px;
+
+    border-radius:40px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    opacity:.8;
+
+}
+
+
+
+
+
+.hero-photo{
+
+    width:50%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.hero-photo img{
+
+    width:90%;
+
+    max-width:620px;
+
+    filter:
+
+    grayscale(100%)
+
+    contrast(105%);
+
+    
+
+    opacity:.96;
+
+
+    mask-image:
+    linear-gradient(
+        to bottom,
+        black 80%,
+        transparent 100%
+    );
+
+}
+
+
+
+
+
+
+/* =========================
+ Section
+========================= */
+
+
+.section{
+
+    display:flex;
+
+    gap:90px;
+
+    padding:140px 8%;
+
+    border-top:1px solid #eeeeee;
+
+}
+
+
+
+.index{
+
+    font-size:18px;
+
+    color:#999;
+
+    width:80px;
+
+}
+
+
+
+.content{
+
+    max-width:900px;
+
+}
+
+
+
+.content h3{
+
+    font-size:52px;
+
+    font-weight:500;
+
+    letter-spacing:-2px;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.content p{
+
+    font-size:20px;
+
+    color:#555;
+
+    max-width:700px;
+
+}
+
+
+
+
+
+
+/* =========================
+ Talent Radar
+========================= */
+
+
+.radar{
+
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:50px;
+
+}
+
+
+
+.radar h4{
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.radar p{
+
+    font-size:15px;
+
+    color:#777;
+
+}
+
+
+
+
+
+
+/* =========================
+ Industry Map
+========================= */
+
+
+.map{
+
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:45px;
+
+}
+
+
+
+.map h4{
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.map p{
+
+    font-size:15px;
+
+    color:#777;
+
+}
+
+
+
+
+
+
+
+/* =========================
+ Thinking
+========================= */
+
+
+.big{
+
+    font-size:52px!important;
+
+    color:#111!important;
+
+    line-height:1.4;
+
+    margin:50px 0;
+
+    letter-spacing:-2px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+ Articles
+========================= */
+
+
+.article{
+
+    padding:35px 0;
+
+    border-bottom:1px solid #eee;
+
+    font-size:24px;
+
+    color:#222;
+
+}
+
+
+
+.article:first-letter{
+
+    color:#999;
+
+}
+
+
+
+
+
+
+
+/* =========================
+ Contact
+========================= */
+
+
+.contact{
+
+    padding:150px 8%;
+
+    text-align:center;
+
+}
+
+
+
+.contact h3{
+
+    font-size:60px;
+
+    font-weight:500;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.contact p{
+
+    color:#666;
+
+    font-size:20px;
+
+}
+
+
+
+
+footer{
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+
+/* =========================
+ Animation
+========================= */
+
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:
+
+    all 1s ease;
+
+}
+
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+
+
+
+
+
+
+/* =========================
+ Mobile
+========================= */
+
+
+@media(max-width:900px){
+
+
+.header{
+
+    padding:0 5%;
+
+}
+
+
+
+nav{
+
+    display:none;
+
+}
+
+
+
+.hero{
+
+    flex-direction:column;
+
+    padding:60px 5%;
+
+}
+
+
+
+.hero-content{
+
+    width:100%;
+
+}
+
+
+
+.hero-photo{
+
+    width:100%;
+
+    margin-top:60px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:80px;
+
+}
+
+
+
+.hero h2{
+
+    font-size:30px;
+
+}
+
+
+
+.section{
+
+    flex-direction:column;
+
+    padding:90px 5%;
+
+    gap:30px;
+
+}
+
+
+
+.content h3{
+
+    font-size:38px;
+
+}
+
+
+
+.radar,
+.map{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.big{
+
+    font-size:36px!important;
+
+}
+
+
+
+.contact h3{
+
+    font-size:42px;
+
+}
+
+
+}
