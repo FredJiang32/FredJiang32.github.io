@@ -1,199 +1,172 @@
-// =========================
-// Fred AI Homepage V4.1
-// Interaction Script
-// =========================
+/* ==================================================
+   SCROLL REVEAL
+================================================== */
 
-
-
-/*
-  Scroll Reveal Animation
-
-  页面滚动时，
-  内容逐渐出现
-*/
-
-
-const reveals = document.querySelectorAll(".reveal");
-
+const revealElements = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
+    (entries) => {
 
-(entries)=>{
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("active");
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach((element) => {
+    observer.observe(element);
+});
 
 
-entries.forEach(entry=>{
+/* ==================================================
+   HEADER SCROLL
+================================================== */
 
+const header = document.querySelector(".header");
 
-if(entry.isIntersecting){
+function updateHeader() {
 
-
-entry.target.classList.add("active");
-
+    if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
 
 }
+
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+);
+
+updateHeader();
+
+
+/* ==================================================
+   HERO PERSON PARALLAX
+================================================== */
+
+const heroPerson = document.querySelector(".hero-person");
+
+if (heroPerson) {
+
+    let ticking = false;
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (!ticking) {
+
+                window.requestAnimationFrame(() => {
+
+                    const scrollY = window.scrollY;
+
+                    if (scrollY < window.innerHeight) {
+
+                        const offset = scrollY * 0.08;
+
+                        heroPerson.style.transform =
+                            `translateY(${offset}px)`;
+
+                    }
+
+                    ticking = false;
+
+                });
+
+                ticking = true;
+            }
+
+        },
+        { passive: true }
+    );
+
+}
+
+
+/* ==================================================
+   SMOOTH ANCHOR SCROLL
+================================================== */
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+        const targetId =
+            link.getAttribute("href");
+
+        if (!targetId || targetId === "#") {
+            return;
+        }
+
+        const target =
+            document.querySelector(targetId);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
 
 });
 
 
-},
+/* ==================================================
+   WECHAT QR
+================================================== */
 
-{
+const wechatLink =
+    document.querySelector(".wechat-link");
 
-threshold:0.15
+const wechatPopup =
+    document.querySelector(".wechat-popup");
 
-}
+if (wechatLink && wechatPopup) {
 
-);
+    wechatLink.addEventListener(
+        "click",
+        (event) => {
 
+            if (window.innerWidth <= 700) {
 
+                event.stopPropagation();
 
-reveals.forEach(
+                wechatPopup.classList.toggle("mobile-show");
 
-(element)=>{
+            }
 
-observer.observe(element);
-
-}
-
-);
-
-
-
-
-
-
-
-/*
- Hero Image Floating Effect
-
- 人物轻微漂浮
- 增加 Apple 官网感
-*/
-
-
-const photo = document.querySelector(".hero-photo img");
-
-
-let position = 0;
-
-
-function floating(){
-
-
-position += 0.02;
-
-
-if(photo){
-
-
-photo.style.transform =
-
-`translateY(${Math.sin(position)*8}px)`;
+        }
+    );
 
 }
 
 
-requestAnimationFrame(floating);
+/* ==================================================
+   PAGE LOAD
+================================================== */
 
+window.addEventListener("load", () => {
 
-}
-
-
-floating();
-
-
-
-
-
-
-
-/*
- Smooth Anchor Navigation
-
- 导航点击平滑滚动
-*/
-
-
-document.querySelectorAll("nav a")
-
-.forEach(link=>{
-
-
-link.addEventListener(
-
-"click",
-
-function(e){
-
-
-const target =
-
-document.querySelector(
-
-this.getAttribute("href")
-
-);
-
-
-
-if(target){
-
-
-e.preventDefault();
-
-
-target.scrollIntoView({
-
-behavior:"smooth"
+    document.body.classList.add("loaded");
 
 });
-
-
-}
-
-
-}
-
-);
-
-
-});
-
-
-
-
-
-
-
-/*
- Hero Button
-
- 点击 Explore
- 滚动到 About
-*/
-
-
-const explore =
-
-document.querySelector(".primary");
-
-
-if(explore){
-
-
-explore.onclick=function(){
-
-
-document
-.querySelector("#about")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-
-};
-
-
-}
