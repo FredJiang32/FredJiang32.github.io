@@ -67,11 +67,11 @@
     visible.forEach(job => {
       const article = el("article", "job");
       const meta = el("div", "job-meta");
-      [job.category, job.company || "公司信息沟通时介绍", job.city || "地点待沟通", job.salary || "薪资面议"].forEach(value => meta.append(el("span", "", value)));
+      [job.category, job.company || "公司信息沟通时介绍", job.city || "地点待沟通", job.salary || "薪资待沟通", job.education, job.experience].filter(Boolean).forEach(value => meta.append(el("span", "", value)));
       article.append(meta, el("h3", "", job.title), el("p", "", job.summary || "欢迎联系 Fred 了解工作内容与团队。"));
       const details = el("details"); details.append(el("summary", "", "查看岗位详情"));
       const body = el("div", "job-body");
-      [["工作内容", job.responsibilities], ["希望你具备", job.requirements]].forEach(([heading, items]) => { if (!items?.length) return; body.append(el("strong", "", heading)); const ul = el("ul"); items.forEach(item => ul.append(el("li", "", item))); body.append(ul); });
+      [["工作职责", job.responsibilities], ["任职要求", job.requirements], ["加分项", job.bonus]].forEach(([heading, items]) => { if (!items?.length) return; body.append(el("strong", "", heading)); const ul = el("ul"); items.forEach(item => ul.append(el("li", "", item))); body.append(ul); });
       const contact = el("button", "button primary", "和 Fred 了解这个岗位 ↗"); contact.type = "button"; contact.dataset.wechat = "";
       body.append(contact); details.append(body);
       const updated = el("p", "job-updated", "更新于 "); updated.append(dateNode(job.updatedAt));
