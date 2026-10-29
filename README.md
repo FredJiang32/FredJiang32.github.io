@@ -2,7 +2,7 @@
 
 GitHub Pages: https://fredjiang32.github.io/
 
-原生 HTML / CSS / JavaScript，无需构建、依赖或付费服务。保留原仓库的肖像与微信二维码。
+原生 HTML / CSS / JavaScript，无需构建、依赖或付费服务。首屏使用抽象的技术人才雷达品牌图，联系入口保留微信二维码。当前版本不包含真人照片；Git 历史中的旧照片尚未清理。
 
 ## 更新内容
 
